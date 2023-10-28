@@ -3,14 +3,15 @@ import {Header, Input, Footer} from "./components";
 import {Routes, Route} from "react-router-dom";
 
 function App() {
-  const [form, setForm] = useState({});
-  
+  const [form, setForm] = useState({login: "", password: ""});
+  console.log(form);
 
   return (
     <div className="app">
       <Header />
-      <Input label="Логин" type="text" name="login"/>
-      <Input label="Пароль" type="text" name="password"/>
+
+      <Input label="Логин" type="text" name="login" form={form} setForm={setForm}/>
+      <Input label="Пароль" type="text" name="password" maxLength={10} form={form} setForm={setForm}/>
 
       <Routes>
         <Route path="/" element={<h1>Главная</h1>}/>
