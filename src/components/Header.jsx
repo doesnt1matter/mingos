@@ -19,9 +19,19 @@ const Header = () => {
               <Link to={"/"}>Главная</Link>
               <Link to={"/documents"}>Документы</Link>
               <Link to={"/contacts"}>Контакты</Link>
+              <Link to={"/account"}>Аккаунт</Link>
             </div>
 
-            <div>{UserStore.isAuth ? UserStore.user.email : "ТРЕБУЕТСЯ ВХОД"}</div>
+            <div>{UserStore.isAuth ? 
+            `${UserStore.user.surname} 
+             ${UserStore.user.name} 
+             ${UserStore.user.patronymic}
+             (${UserStore.user.email})` : "ТРЕБУЕТСЯ ВХОД"}</div>
+            {UserStore.isAuth 
+            ?
+            <button onClick={() => {UserStore.logout()}}>ВЫХОД</button> 
+            : ""
+            }
         </div>
     </div>
   )

@@ -5,6 +5,7 @@ const Input = (props) => {
     <div className="input">
         <div className="input__label">{props.label}</div>
         <input 
+          placeholder={props.name}
           className="input__area" 
           type={props.type} 
           name={props.name} 
